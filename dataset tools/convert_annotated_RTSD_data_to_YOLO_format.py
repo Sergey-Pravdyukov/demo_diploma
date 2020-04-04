@@ -54,23 +54,15 @@ def convert_label(strange_label, labels_dict):
 
 def convert_points_to_YOLO_format(annotation, img_size):
 	total_h, total_w = img_size
-	x, y, w, h = annotation.split(' ')
-	x, y, w, h = int(x), int(y), int(w), int(h)
+	x, y, w, h = map(lambda x: int(x), annotation.split(' '))
 
-	w, h = x + w, y + h
-	
-	center_x = int((x + w) / 2)
-	center_y = int((y + h) / 2) 
-	w = abs(x - w)
-	h = abs(y - h)
-
-	center_x = float(center_x) / total_w
-	center_y = float(center_y) / total_h
+	center_x = float(int((2 * x + w) / 2)) / total_w
+	center_y = float(int((2 * y + h) / 2)) / total_h
 	w = float(w) / total_w
 	h = float(h) / total_h
 
-	center_x, center_y, w, h = str(center_x), str(center_y), str(w), str(h)
-	return(center_x + ' ' + center_y + ' ' + w + ' ' + h)
+	center_x, center_y, w, h = map(lambda x: str(x), (center_x, center_y, w, h))
+	return(" ".join([center_x, center_y, w, h]))
 
 @click.command()
 @click.option('--dataset_path', default='../pruned_RTSD/detection/rtsd-d1-frames', help='Relative path to convertible dataset home dir.')
