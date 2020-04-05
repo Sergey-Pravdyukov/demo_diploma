@@ -1,4 +1,4 @@
-labels_prefix=../pruned_RTSD/detection/rtsd-d1-frames/labels
+labels_prefix=../demo_diploma/pruned_RTSD/detection/rtsd-d1-frames/labels
 namefile_home=../config
 
 all: convert
