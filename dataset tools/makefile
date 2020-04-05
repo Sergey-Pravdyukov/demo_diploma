@@ -22,6 +22,11 @@ namefile:
 	@echo "Create rtsd.name for dataset"
 	python3 create_namefile.py
 
+# Run this target strictly before 'convert' target.
+datafile:
+	@echo "Create rtsd.data for dataset"
+	python3 create_datafile.py
+
 clean:
 	@echo "Cleaning up created annotations"
 	rm -rf $(labels_prefix)/test/* $(labels_prefix)/train/* $(labels_prefix)/val/*
@@ -29,3 +34,6 @@ clean:
 	rm -f $(labels_prefix)/*.txt
 	@echo "Cleaning up created namefile"
 	rm -f $(namefile_home)/*.name
+	@echo "Cleaning up created datafile"
+	rm -f $(namefile_home)/*.data
+

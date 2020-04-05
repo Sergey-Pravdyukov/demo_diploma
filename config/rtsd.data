@@ -1,0 +1,4 @@
+classes=67
+train=../pruned_RTSD/detection/rtsd-d1-frames/labels/train.txt
+valid=../pruned_RTSD/detection/rtsd-d1-frames/labels/val.txt
+names=../config/rtsd.names
