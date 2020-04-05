@@ -7,6 +7,7 @@ convert:
 	python3 convert_annotated_RTSD_data_to_YOLO_format.py
 	rm -rf $(labels_prefix)/*/txt
 
+# Example: make create_imgfiles TYPES="test train val"
 create_imgfiles:  
 	for type in ${TYPES} ; do \
 		ls ${labels_prefix}/$${type} > ${labels_prefix}/$${type}.txt ; \
