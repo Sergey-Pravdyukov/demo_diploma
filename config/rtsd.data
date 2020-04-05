@@ -1,4 +1,4 @@
 classes=67
-train=../pruned_RTSD/detection/rtsd-d1-frames/labels/train.txt
-valid=../pruned_RTSD/detection/rtsd-d1-frames/labels/val.txt
+train=../demo_diploma/pruned_RTSD/detection/rtsd-d1-frames/labels/train.txt
+valid=../demo_diploma/pruned_RTSD/detection/rtsd-d1-frames/labels/val.txt
 names=../config/rtsd.names
