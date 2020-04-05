@@ -1,4 +1,5 @@
 labels_prefix=../pruned_RTSD/detection/rtsd-d1-frames/labels
+namefile_home=../config
 
 all: convert
 
@@ -14,8 +15,15 @@ create_imgfiles:
 		sed -i -e "s#^#${labels_prefix}/$${type}/#" ${labels_prefix}/$${type}.txt ; \
 	done
 
+# Run this target strictly before 'convert' target.
+create_namefile:
+	@echo "Create rtsd.name for dataset"
+	python3 create_namefile.py
+
 clean:
 	@echo "Cleaning up created annotations"
 	rm -rf $(labels_prefix)/test/* $(labels_prefix)/train/* $(labels_prefix)/val/*
 	@echo "Cleaning up created imgfiles"
 	rm -f $(labels_prefix)/*.txt
+	@echo "Cleaning up created namefile"
+	rm -f $(namefile_home)/*.name
