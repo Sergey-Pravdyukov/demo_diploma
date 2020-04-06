@@ -14,7 +14,7 @@ imgfiles:
 	@echo "Create $${TYPES} imgfiles."
 	for type in ${TYPES} ; do \
 		ls ${labels_prefix}/$${type} > ${labels_prefix}/$${type}.txt ; \
-		sed -i -e "s#^#${labels_prefix}/$${type}/#" ${labels_prefix}/$${type}.txt ; \
+		sed -i -e "s#^#./$${type}/#" ${labels_prefix}/$${type}.txt ; \
 	done
 
 # Run this target strictly before 'convert' target.
