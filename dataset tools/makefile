@@ -1,5 +1,5 @@
-labels_prefix=../demo_diploma/pruned_RTSD/detection/rtsd-d1-frames/labels
-namefile_home=../config
+labels_prefix=/content/demo_diploma/pruned_RTSD/detection/rtsd-d1-frames/labels
+namefile_home=/content/demo_diploma/config
 
 all: convert
 

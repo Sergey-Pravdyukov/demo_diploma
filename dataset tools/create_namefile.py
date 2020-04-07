@@ -3,8 +3,8 @@ import click
 from convert_annotated_RTSD_data_to_YOLO_format import get_annotation_lines, get_all_labels
 
 @click.command()
-@click.option('--dataset_annotations_path', default='../pruned_RTSD/detection/rtsd-d1-gt/rtsd-d1-gt_full.csv', help='Relative path to full datase toannotation files.')
-@click.option('--target_dir', default='../config', help='Path to created *.name')
+@click.option('--dataset_annotations_path', default='/content/demo_diploma/pruned_RTSD/detection/rtsd-d1-gt/rtsd-d1-gt_full.csv', help='Relative path to full datase toannotation files.')
+@click.option('--target_dir', default='/content/demo_diploma/config', help='Path to created *.name')
 def create_namefile(dataset_annotations_path, target_dir):
 	annotation_lines = get_annotation_lines(dataset_annotations_path)
 	labels_dict = get_all_labels(annotation_lines)
