@@ -11,8 +11,8 @@ def create_datafile(dataset_path, dataset_annotations_path, namefile_path, targe
 	datafile_args = {}
 
 	datafile_args['classes'] = len(get_all_labels(get_annotation_lines(dataset_annotations_path)))
-	datafile_args['train'] = os.path.join(dataset_path, 'labels', 'train.txt')
-	datafile_args['valid'] = os.path.join(dataset_path, 'labels', 'val.txt')
+	datafile_args['train'] = os.path.join(dataset_path, 'images', 'train', 'train.txt')
+	datafile_args['valid'] = os.path.join(dataset_path, 'images', 'val', 'val.txt')
 	datafile_args['names'] = namefile_path
 
 	file = open(os.path.join(target_dir, 'rtsd.data'), 'w')	

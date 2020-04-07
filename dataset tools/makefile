@@ -1,3 +1,4 @@
+images_prefix=../pruned_RTSD/detection/rtsd-d1-frames/images
 labels_prefix=../pruned_RTSD/detection/rtsd-d1-frames/labels
 namefile_home=../config
 
@@ -13,8 +14,10 @@ convert:
 imgfiles:
 	@echo "Create $${TYPES} imgfiles."
 	for type in ${TYPES} ; do \
+		ls ${images_prefix}/$${type} > ${images_prefix}/$${type}.txt ; \
 		ls ${labels_prefix}/$${type} > ${labels_prefix}/$${type}.txt ; \
 		sed -i -e "s#^#./$${type}/#" ${labels_prefix}/$${type}.txt ; \
+		sed -i -e "s#^#./$${type}/#" ${images_prefix}/$${type}.txt ; \
 	done
 
 # Run this target strictly before 'convert' target.

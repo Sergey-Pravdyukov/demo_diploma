@@ -15,7 +15,7 @@ def find_labels(img_list, dataset_part, dataset_path, dataset_annotations_path):
 				found = True
 				img_annotations.append(line)
 		if not found:
-			file = open(os.path.join(dataset_path, 'labels', dataset_part, img_name[:-3] + 'txt'), 'a')
+			file = open(os.path.join(dataset_path, 'labels', img_name[2:-3] + 'txt'), 'a')
 			file.write('')
 			file.close()
 	for annotation in img_annotations:
@@ -70,7 +70,7 @@ def convert_points_to_YOLO_format(annotation, img_size):
 def convert_annotated_RTSD_data_to_YOLO_format(dataset_path, dataset_annotations_path):
 	dataset_parts = ['train', 'val', 'test']
 	for dataset_part in dataset_parts:
-		file = open(os.path.join(dataset_path, 'images', dataset_part, (dataset_part + '_images.txt')), 'r')
+		file = open(os.path.join(dataset_path, 'images', (dataset_part + '.txt')), 'r')
 		img_list = file.read()
 		img_list = img_list.split('\n')	
 		find_labels(img_list, dataset_part, dataset_path, dataset_annotations_path) 			
