@@ -5,23 +5,31 @@ import numpy as np
 import click
 
 def find_labels(img_list, dataset_part, dataset_path, dataset_annotations_path):
+	# print("img_list:", img_list)
+
+	# print("dataset part:", dataset_part)
+	# print("dataset psth:", dataset_path)
+	# print("dataset_annotations_path:", dataset_annotations_path)
 	annotation_lines = get_annotation_lines(dataset_annotations_path)
 	labels_dict = get_all_labels(annotation_lines)
+	# print("annotation_lines:", annotation_lines)
 	img_annotations = []
 	for img_name in img_list:
 		found = False
 		for line in annotation_lines:
-			if line[0] == img_name:
+			if line[0] == img_name.split('/')[-1]:
 				found = True
 				img_annotations.append(line)
 		if not found:
-			file = open(os.path.join(dataset_path, 'labels', dataset_part, img_name[:-3] + 'txt'), 'a')
+			file = open(os.path.join(dataset_path, 'labels', dataset_part, (img_name.split('/')[-1])[:-3] + 'txt'), 'a')
 			file.write('')
 			file.close()
+	# print("img_annotations:",img_annotations)
 	for annotation in img_annotations:
 		img_name = annotation[0]
 		img = cv2.imread(os.path.join(dataset_path, 'images', dataset_part, img_name))
 		converted_annotation = convert_label(annotation[-1], labels_dict) + ' ' + convert_points_to_YOLO_format(' '.join(annotation[1:-1]), img.shape[:-1])
+		# print("Writing file:", os.path.join(dataset_path, 'labels', dataset_part, img_name[:-3] + 'txt'))
 		file = open(os.path.join(dataset_path, 'labels', dataset_part, img_name[:-3] + 'txt'), 'a')
 		file.write(converted_annotation + '\n')
 		file.close()
@@ -70,7 +78,7 @@ def convert_points_to_YOLO_format(annotation, img_size):
 def convert_annotated_RTSD_data_to_YOLO_format(dataset_path, dataset_annotations_path):
 	dataset_parts = ['train', 'val', 'test']
 	for dataset_part in dataset_parts:
-		file = open(os.path.join(dataset_path, 'images', dataset_part, (dataset_part + '_images.txt')), 'r')
+		file = open(os.path.join(dataset_path, 'images', (dataset_part + '.txt')), 'r')
 		img_list = file.read()
 		img_list = img_list.split('\n')	
 		find_labels(img_list, dataset_part, dataset_path, dataset_annotations_path) 			
