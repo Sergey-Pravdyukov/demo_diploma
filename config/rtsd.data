@@ -1,4 +1,4 @@
-classes=107
-train=/content/demo_diploma/full_RTSD/detection/rtsd-d3-frames/images/train.txt
-valid=/content/demo_diploma/full_RTSD/detection/rtsd-d3-frames/images/val.txt
+classes=67
+train=/content/demo_diploma/pruned_RTSD/detection/rtsd-d1-frames/images/train.txt
+valid=/content/demo_diploma/pruned_RTSD/detection/rtsd-d1-frames/images/val.txt
 names=/content/demo_diploma/config/rtsd.names
