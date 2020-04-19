@@ -74,8 +74,8 @@ def convert_points_to_YOLO_format(annotation, img_size):
 	return(" ".join([center_x, center_y, w, h]))
 
 @click.command()
-@click.option('--dataset_path', default='/content/demo_diploma/RTSD-d3/detection/rtsd-d3-frames', help='Relative path to convertible dataset home dir.')
-@click.option('--dataset_annotations_path', default='/content/demo_diploma/RTSD-d3/detection/rtsd-d3-gt/rtsd-d3-gt_full.csv', help='Relative path to full datase toannotation files.')
+@click.option('--dataset_path', default='/content/demo_diploma/pruned_RTSD/detection/rtsd-d1-frames', help='Relative path to convertible dataset home dir.')
+@click.option('--dataset_annotations_path', default='/content/demo_diploma/pruned_RTSD/detection/rtsd-d1-gt/rtsd-d1-gt_full.csv', help='Relative path to full datase toannotation files.')
 def convert_annotated_RTSD_data_to_YOLO_format(dataset_path, dataset_annotations_path):
 	dataset_parts = ['train', 'val']
 	for dataset_part in dataset_parts:
