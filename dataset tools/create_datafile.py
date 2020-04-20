@@ -3,8 +3,8 @@ import os
 from convert_annotated_RTSD_data_to_YOLO_format import get_annotation_lines, get_all_labels
 
 @click.command()
-@click.option('--dataset_path', default='/content/demo_diploma/pruned_RTSD/detection/rtsd-d3-frames', help='Relative path to convertible dataset home dir.')
-@click.option('--dataset_annotations_path', default='/content/demo_diploma/pruned_RTSD/detection/rtsd-d3-gt/rtsd-d3-gt_full.csv', help='Relative path to full datase toannotation files.')
+@click.option('--dataset_path', default='/content/demo_diploma/RTSD-d2/detection/rtsd-d2-frames', help='Relative path to convertible dataset home dir.')
+@click.option('--dataset_annotations_path', default='/content/demo_diploma/RTSD-d2/detection/rtsd-d2-gt/rtsd-d2-gt_full.csv', help='Relative path to full datase toannotation files.')
 @click.option('--namefile_path', default='/content/demo_diploma/config/rtsd.names', help='Path to dataset namefile.')
 @click.option('--target_dir', default='/content/demo_diploma/config', help='Path to created *.data')
 def create_datafile(dataset_path, dataset_annotations_path, namefile_path, target_dir):
