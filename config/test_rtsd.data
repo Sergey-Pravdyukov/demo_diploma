@@ -1,4 +1,4 @@
 classes=69
-train=/content/demo_diploma/rtsd-d2-test.txt
-valid=/content/demo_diploma/rtsd-d2-test.txt
+train=/content/demo_diploma/config/rtsd-d2-test.txt
+valid=/content/demo_diploma/config/rtsd-d2-test.txt
 names=/content/demo_diploma/config/rtsd.names
